@@ -1,0 +1,66 @@
+body {
+  text-align: center;
+  background-image: linear-gradient(to left, #e6e9f0 0%, #eef1f5 100%);
+  margin-bottom: 100px;
+}
+
+h1 {
+  color: rgb(8, 8, 51);
+  font-family: "Italiana", serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+button {
+  border: transparent;
+  background-color: transparent;
+  font-size: 10px;
+}
+
+.form {
+  display: relative;
+  border: transparent;
+  width: 80%;
+  text-align: left;
+}
+
+.search {
+  background: transparent;
+  padding: transparent;
+  color: rgb(8, 8, 51);
+  border: transparent;
+  position: relative;
+  margin: 0px;
+  object-position: right;
+}
+
+.search:hover {
+  background: rgb(141, 141, 151);
+  color: white;
+}
+
+.card {
+  background: transparent;
+  padding: transparent;
+  color: rgb(8, 8, 51);
+  border: transparent;
+}
+
+.justify-left {
+  text-align: left;
+}
+
+.justify-right {
+  text-align: right;
+}
+
+.units {
+  position: relative;
+  top: -10px;
+  font-size: 10px;
+  color: grey;
+}
+
+#city {
+  text-transform: uppercase;
+}

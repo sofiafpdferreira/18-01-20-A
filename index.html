@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+		<title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Italiana&display=swap"
+      rel="stylesheet"
+		/>
+    <script
+      src="https://kit.fontawesome.com/965455d930.js"
+      crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>
+        WHEATHER
+			</h1>
+			<p>
+			<form id="form-city">
+        <input type="text" class="form" id="city-input" placeholder=" Enter a city">
+        <input type="submit" class="search" value="search" >
+      </form>
+		</p>
+		<button id="current-location-button">
+			or clik here to user your current location
+		</button>
+    </br>
+  </br>
+  <div class="row">
+
+      <div class="col">
+        <div class="card">
+          <div class="justify-left">
+          <div class="card-body">
+						<h5 class="card-title" id="city">LISBON  </h5>
+						<h5><i class="fas fa-sun"></i></h5>
+            <p class="card-text" id="date">
+              Today Day + Time  
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+        <div class="col">
+            <div class="card">
+            <div class="justify-right">
+              <div class="card-body">
+								<h5 class="card-title"> <span id= "temperature-zero">T0</span> <span class="units"> <a href="#" id="celcius-zero">°C</a> |<a href="#" id = "fahrenheit-zero">°F</a></span></h5>
+								
+                <p class="card-text" id="condition">
+                  Clear
+                </p>
+              </div>
+            </div>
+            </div>
+          </div>
+           <div class="w-100"></div>
+    </div>
+    </br>
+  </br>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+            <div class="justify-left">
+              <h5  class="card-title">WIND</h5>
+              <p id= "wind" class="card-text">
+                1.9 m/s
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5  class="card-title">HUMIDITY</h5>
+                <p class="card-text" id="humidity">
+                  24%
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col">
+              <div class="card">
+                <div class="justify-right">
+                <div class="card-body">
+                  <h5  class="card-title">PRESSURE</h5>
+                  <p class="card-text" id="pressure">
+                    9001 hPa
+                  </p>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="w-100"></div>
+      </div>
+    </br>
+  </br>
+      <div class="row">
+
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="today-plus-1">today+1</h5>
+              <p class="card-text">
+                <span id= "temperature-one" >T1</span> <span class="units"> <a href="#" id="celcius-one">°C</a> |<a href="#" id = "fahrenheit-one">°F</a></span>
+              </p>
+            </div>
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="today-plus-2">today+2</h5>
+              <p class="card-text">
+                <span id="temperature-two">T2</span> <span class="units"> <a href="#" id="celcius-two">°C</a> |<a href="#" id = "fahrenheit-two">°F</a></span>
+              </p>
+            </div>
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="today-plus-3">today+3</h5>
+              <p class="card-text">
+                <span id= "temperature-three">T3</span> <span class="units"> <a href="#" id="celcius-three">°C</a> |<a href="#" id = "fahrenheit-three">°F</a></span>
+              </p>
+            </div>
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="today-plus-4">today+4</h5>
+              <p class="card-text">
+                <span id= "temperature-four">T4</span> <span class="units"> <a href="#" id="celcius-four">°C</a> |<a href="#" id = "fahrenheit-four">°F</a></span>
+              </p>
+            </div>
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="today-plus-5">today+5</h5>
+              <p class="card-text">
+                <span id= "temperature-five">T5</span> <span class="units"> <a href="#" id="celcius-five">°C</a> |<a href="#" id = "fahrenheit-five">°F</a></span>
+              </p>
+            </div>
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
+
+          <div class="w-100"></div>
+      </div>
+  
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
