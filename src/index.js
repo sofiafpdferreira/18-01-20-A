@@ -67,7 +67,6 @@ function formatDatePlusFive(timestamp) {
 }
 
 function displayWeatherCondition1(response1) {
-  console.log(response1);
   document.querySelector("#city").innerHTML = response1.data.name;
   celciusDayZero = response1.data.main.temp;
   document.querySelector("#temperature-zero").innerHTML = `${Math.round(
@@ -111,10 +110,67 @@ function displayWeatherCondition1(response1) {
     );
 }
 
+function displayForecast(response) {
+  celciusDayOne = response.data.list[8].main.temp;
+  document.querySelector("#temperature-one").innerHTML = `${Math.round(
+    celciusDayOne
+  )}ºC`;
+  celciusDayTwo = response.data.list[16].main.temp;
+  document.querySelector("#temperature-two").innerHTML = `${Math.round(
+    celciusDayTwo
+  )}ºC`;
+  celciusDayThree = response.data.list[24].main.temp;
+  document.querySelector("#temperature-three").innerHTML = `${Math.round(
+    celciusDayThree
+  )}ºC`;
+  celciusDayFour = response.data.list[32].main.temp;
+  document.querySelector("#temperature-four").innerHTML = `${Math.round(
+    celciusDayFour
+  )}ºC`;
+  celciusDayFive = response.data.list[39].main.temp;
+  document.querySelector("#temperature-five").innerHTML = `${Math.round(
+    celciusDayFive
+  )}ºC`;
+
+  document
+    .querySelector("#icon-today-plus-one")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.list[8].wheather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon-today-plus-two")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.list[16].wheather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon-today-plus-three")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.list[24].wheather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon-today-plus-four")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.list[32].wheather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon-today-plus-five")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.list[39].wheather[0].icon}@2x.png`
+    );
+}
+
 function searchCity1(city1) {
   let apiKey = "c33f9f369abbfb38690d5dd06c2b8718";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city1}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition1);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city1}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function RetrivePosition1(position1) {
@@ -170,9 +226,7 @@ convertToCelciusZero.addEventListener("click", UndoConvertZero);
 
 // day 1
 
-let celciusDayOne = 28;
-let DayOne = document.querySelector("#temperature-one");
-DayOne.innerHTML = celciusDayOne + "ºC";
+let celciusDayOne = null;
 
 function convertOne(event) {
   event.preventDefault();
@@ -186,17 +240,15 @@ convertToFahrenheitOne.addEventListener("click", convertOne);
 function UndoConvertOne(event) {
   event.preventDefault();
   let fahrenheitOne = document.querySelector("#temperature-one");
-  fahrenheitOne.innerHTML = celciusDayOne + "ºC";
+  fahrenheitOne.innerHTML = Math.round(celciusDayOne) + "ºC";
 }
 
 let convertToCelciusOne = document.querySelector("#celcius-one");
 convertToCelciusOne.addEventListener("click", UndoConvertOne);
 
-//day 2
+// day 2
 
-let celciusDayTwo = 27;
-let DayTwo = document.querySelector("#temperature-two");
-DayTwo.innerHTML = celciusDayTwo + "ºC";
+let celciusDayTwo = null;
 
 function convertTwo(event) {
   event.preventDefault();
@@ -210,7 +262,7 @@ convertToFahrenheitTwo.addEventListener("click", convertTwo);
 function UndoConvertTwo(event) {
   event.preventDefault();
   let fahrenheitTwo = document.querySelector("#temperature-two");
-  fahrenheitTwo.innerHTML = celciusDayTwo + "ºC";
+  fahrenheitTwo.innerHTML = Math.round(celciusDayTwo) + "ºC";
 }
 
 let convertToCelciusTwo = document.querySelector("#celcius-two");
@@ -218,9 +270,7 @@ convertToCelciusTwo.addEventListener("click", UndoConvertTwo);
 
 // day 3
 
-let celciusDayThree = 30;
-let DayThree = document.querySelector("#temperature-three");
-DayThree.innerHTML = celciusDayThree + "ºC";
+let celciusDayThree = null;
 
 function convertThree(event) {
   event.preventDefault();
@@ -234,7 +284,7 @@ convertToFahrenheitThree.addEventListener("click", convertThree);
 function UndoConvertThree(event) {
   event.preventDefault();
   let fahrenheitThree = document.querySelector("#temperature-three");
-  fahrenheitThree.innerHTML = celciusDayThree + "ºC";
+  fahrenheitThree.innerHTML = Math.round(celciusDayThree) + "ºC";
 }
 
 let convertToCelciusThree = document.querySelector("#celcius-three");
@@ -242,9 +292,7 @@ convertToCelciusThree.addEventListener("click", UndoConvertThree);
 
 // day 4
 
-let celciusDayFour = 31;
-let DayFour = document.querySelector("#temperature-four");
-DayFour.innerHTML = celciusDayFour + "ºC";
+let celciusDayFour = null;
 
 function convertFour(event) {
   event.preventDefault();
@@ -258,7 +306,7 @@ convertToFahrenheitFour.addEventListener("click", convertFour);
 function UndoConvertFour(event) {
   event.preventDefault();
   let fahrenheitFour = document.querySelector("#temperature-four");
-  fahrenheitFour.innerHTML = celciusDayFour + "ºC";
+  fahrenheitFour.innerHTML = Math.round(celciusDayFour) + "ºC";
 }
 
 let convertToCelciusFour = document.querySelector("#celcius-four");
@@ -266,9 +314,7 @@ convertToCelciusFour.addEventListener("click", UndoConvertFour);
 
 // day 5
 
-let celciusDayFive = 32;
-let DayFive = document.querySelector("#temperature-five");
-DayFive.innerHTML = celciusDayFive + "ºC";
+let celciusDayFive = null;
 
 function convertFive(event) {
   event.preventDefault();
@@ -282,7 +328,7 @@ convertToFahrenheitFive.addEventListener("click", convertFive);
 function UndoConvertFive(event) {
   event.preventDefault();
   let fahrenheitFive = document.querySelector("#temperature-five");
-  fahrenheitFive.innerHTML = celciusDayFive + "ºC";
+  fahrenheitFive.innerHTML = Math.round(celciusDayFive) + "ºC";
 }
 
 let convertToCelciusFive = document.querySelector("#celcius-five");
