@@ -7,23 +7,6 @@
 
 //date();
 
-//let followingDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-
-//let dayPlusOne = document.querySelector("#today-plus-1");
-//dayPlusOne.innerHTML = followingDays[1 + now.getDay()];
-
-//let dayPlusTwo = document.querySelector("#today-plus-2");
-//dayPlusTwo.innerHTML = followingDays[2 + now.getDay()];
-
-//let dayPlusThree = document.querySelector("#today-plus-3");
-//dayPlusThree.innerHTML = followingDays[3 + now.getDay()];
-
-//let dayPlusFour = document.querySelector("#today-plus-4");
-//dayPlusFour.innerHTML = followingDays[4 + now.getDay()];
-
-//let dayPlusFive = document.querySelector("#today-plus-5");
-//dayPlusFive.innerHTML = followingDays[5 + now.getDay()];
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -48,6 +31,41 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function formatDatePlusOne(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  let day = days[date.getDay()];
+  return `${day}`;
+}
+
+function formatDatePlusTwo(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  let day = days[1 + date.getDay()];
+  return `${day}`;
+}
+
+function formatDatePlusThree(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  let day = days[2 + date.getDay()];
+  return `${day}`;
+}
+
+function formatDatePlusFour(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  let day = days[3 + date.getDay()];
+  return `${day}`;
+}
+
+function formatDatePlusFive(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  let day = days[4 + date.getDay()];
+  return `${day}`;
+}
+
 function displayWeatherCondition1(response1) {
   console.log(response1);
   document.querySelector("#city").innerHTML = response1.data.name;
@@ -66,8 +84,30 @@ function displayWeatherCondition1(response1) {
   document.querySelector(
     "#description"
   ).innerHTML = `${response1.data.weather[0].description}`;
-  let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response1.data.dt * 1000);
+  document.querySelector("#date").innerHTML = formatDate(
+    response1.data.dt * 1000
+  );
+  document.querySelector("#today-plus-1").innerHTML = formatDatePlusOne(
+    response1.data.dt
+  );
+  document.querySelector("#today-plus-2").innerHTML = formatDatePlusTwo(
+    response1.data.dt
+  );
+  document.querySelector("#today-plus-3").innerHTML = formatDatePlusThree(
+    response1.data.dt
+  );
+  document.querySelector("#today-plus-4").innerHTML = formatDatePlusFour(
+    response1.data.dt
+  );
+  document.querySelector("#today-plus-5").innerHTML = formatDatePlusFive(
+    response1.data.dt
+  );
+  document
+    .querySelector("#icon-today")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response1.data.wheather[0].icon}@2x.png`
+    );
 }
 
 function searchCity1(city1) {
