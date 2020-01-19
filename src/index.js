@@ -1,52 +1,55 @@
-let now = new Date();
+//let now = new Date();
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thurday",
-  "Friday",
-  "Saturday",
-  "Sunday"
-];
-let day = days[now.getDay()];
+//let day = days[now.getDay()];
 
-let hour = now.getHours();
-let minutes = now.getMinutes();
+//let hour = now.getHours();
+//let minutes = now.getMinutes();
 
-function date() {
-  if (hour < 10 && minutes < 10) {
-    document.querySelector("#date").innerHTML = `${day}, 0${hour}:0${minutes}`;
-  } else if (hour < 10 && minutes >= 10) {
-    document.querySelector("#date").innerHTML = `${day}, 0${hour}:${minutes}`;
-  } else if (hour >= 10 && minutes < 10) {
-    document.querySelector("#date").innerHTML = `${day}, ${hour}:0${minutes}`;
-  } else {
-    document.querySelector("#date").innerHTML = `${day}, ${hour}:${minutes}`;
+//date();
+
+//let followingDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+//let dayPlusOne = document.querySelector("#today-plus-1");
+//dayPlusOne.innerHTML = followingDays[1 + now.getDay()];
+
+//let dayPlusTwo = document.querySelector("#today-plus-2");
+//dayPlusTwo.innerHTML = followingDays[2 + now.getDay()];
+
+//let dayPlusThree = document.querySelector("#today-plus-3");
+//dayPlusThree.innerHTML = followingDays[3 + now.getDay()];
+
+//let dayPlusFour = document.querySelector("#today-plus-4");
+//dayPlusFour.innerHTML = followingDays[4 + now.getDay()];
+
+//let dayPlusFive = document.querySelector("#today-plus-5");
+//dayPlusFive.innerHTML = followingDays[5 + now.getDay()];
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
   }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `:0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thurday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ];
+  let day = days[date.getDay()];
+  return `${day}, ${hours}:${minutes}`;
 }
 
-date();
-
-let followingDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-
-let dayPlusOne = document.querySelector("#today-plus-1");
-dayPlusOne.innerHTML = followingDays[1 + now.getDay()];
-
-let dayPlusTwo = document.querySelector("#today-plus-2");
-dayPlusTwo.innerHTML = followingDays[2 + now.getDay()];
-
-let dayPlusThree = document.querySelector("#today-plus-3");
-dayPlusThree.innerHTML = followingDays[3 + now.getDay()];
-
-let dayPlusFour = document.querySelector("#today-plus-4");
-dayPlusFour.innerHTML = followingDays[4 + now.getDay()];
-
-let dayPlusFive = document.querySelector("#today-plus-5");
-dayPlusFive.innerHTML = followingDays[5 + now.getDay()];
-
 function displayWeatherCondition1(response1) {
+  console.log(response1);
   document.querySelector("#city").innerHTML = response1.data.name;
   document.querySelector("#temperature-zero").innerHTML = `${Math.round(
     response1.data.main.temp
@@ -63,6 +66,8 @@ function displayWeatherCondition1(response1) {
   document.querySelector(
     "#description"
   ).innerHTML = `${response1.data.weather[0].description}`;
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response1.data.dt * 1000);
 }
 
 function searchCity1(city1) {
