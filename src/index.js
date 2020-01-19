@@ -69,8 +69,9 @@ function formatDatePlusFive(timestamp) {
 function displayWeatherCondition1(response1) {
   console.log(response1);
   document.querySelector("#city").innerHTML = response1.data.name;
+  celciusDayZero = response1.data.main.temp;
   document.querySelector("#temperature-zero").innerHTML = `${Math.round(
-    response1.data.main.temp
+    celciusDayZero
   )}ºC`;
   document.querySelector(
     "#humidity"
@@ -144,23 +145,28 @@ searchCity1("Lisbon");
 
 // day 0
 
-//function convertZero(event) {
-// event.preventDefault();
-// let celciusZero = document.querySelector("#temperature-zero");
-// celciusZero.innerHTML = Math.round((celciusDayZero * 9) / 5 + 32) + "ºF";
-//}
+let celciusDayZero = null;
 
-//let convertToFahrenheitZero = document.querySelector("#fahrenheit-zero");
-//convertToFahrenheitZero.addEventListener("click", convertZero);
+function convertZero(event) {
+  event.preventDefault();
+  let celciusZero = document.querySelector("#temperature-zero");
+  celciusZero.innerHTML = Math.round((celciusDayZero * 9) / 5 + 32) + "ºF";
+  convertToFahrenheitZero.classlist.remove("active");
+}
 
-//function UndoConvertZero(event) {
-// event.preventDefault();
-//  let fahrenheitZero = document.querySelector("#temperature-zero");
-// fahrenheitZero.innerHTML = celciusDayZero + "ºC";
-//}
+let convertToFahrenheitZero = document.querySelector("#fahrenheit-zero");
+convertToFahrenheitZero.addEventListener("click", convertZero);
 
-//let convertToCelciusZero = document.querySelector("#celcius-zero");
-//convertToCelciusZero.addEventListener("click", UndoConvertZero);
+function UndoConvertZero(event) {
+  event.preventDefault();
+  let fahrenheitZero = document.querySelector("#temperature-zero");
+  fahrenheitZero.innerHTML = Math.round(celciusDayZero) + "ºC";
+  convertToCelciusZero.classList.add("active");
+  convertToFahrenheitZero.classlist.remove("active");
+}
+
+let convertToCelciusZero = document.querySelector("#celcius-zero");
+convertToCelciusZero.addEventListener("click", UndoConvertZero);
 
 // day 1
 

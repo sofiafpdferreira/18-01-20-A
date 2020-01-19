@@ -71,3 +71,13 @@ button {
 #description {
   text-transform: capitalize;
 }
+
+.active {
+  color: grey;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: grey;
+}
