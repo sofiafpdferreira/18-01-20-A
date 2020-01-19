@@ -1,6 +1,7 @@
 body {
   text-align: center;
   background-image: linear-gradient(to left, #e6e9f0 0%, #eef1f5 100%);
+  margin: 0 auto;
   margin-bottom: 100px;
   max-width: 680px;
 }
@@ -47,12 +48,13 @@ button {
   border: transparent;
 }
 
-.justify-left {
-  text-align: left;
+.float-left {
+  float: left;
 }
 
-.justify-right {
-  text-align: right;
+.float-right {
+  float: right;
+  margin-left: 90px;
 }
 
 .units {
@@ -64,4 +66,8 @@ button {
 
 #city {
   text-transform: uppercase;
+}
+
+#description {
+  text-transform: capitalize;
 }

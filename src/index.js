@@ -56,13 +56,13 @@ function displayWeatherCondition1(response1) {
   ).innerHTML = `${response1.data.main.humidity}%`;
   document.querySelector("#wind").innerHTML = `${Math.round(
     response1.data.wind.speed
-  )}m/s`;
+  )}Km/H`;
   document.querySelector("#pressure").innerHTML = `${Math.round(
     response1.data.main.pressure
-  )}m/s`;
+  )}hPa`;
   document.querySelector(
     "#description"
-  ).innerHTML = `${response1.data.weather[0].main}hPa`;
+  ).innerHTML = `${response1.data.weather[0].description}`;
 }
 
 function searchCity1(city1) {
