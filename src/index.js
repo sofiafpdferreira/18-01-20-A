@@ -1,12 +1,3 @@
-//let now = new Date();
-
-//let day = days[now.getDay()];
-
-//let hour = now.getHours();
-//let minutes = now.getMinutes();
-
-//date();
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -207,7 +198,7 @@ function convertZero(event) {
   event.preventDefault();
   let celciusZero = document.querySelector("#temperature-zero");
   celciusZero.innerHTML = Math.round((celciusDayZero * 9) / 5 + 32) + "ºF";
-  convertToFahrenheitZero.classlist.remove("active");
+  convertToFahrenheitZero.classList.remove("active");
 }
 
 let convertToFahrenheitZero = document.querySelector("#fahrenheit-zero");
@@ -218,7 +209,7 @@ function UndoConvertZero(event) {
   let fahrenheitZero = document.querySelector("#temperature-zero");
   fahrenheitZero.innerHTML = Math.round(celciusDayZero) + "ºC";
   convertToCelciusZero.classList.add("active");
-  convertToFahrenheitZero.classlist.remove("active");
+  convertToFahrenheitZero.classList.remove("active");
 }
 
 let convertToCelciusZero = document.querySelector("#celcius-zero");
