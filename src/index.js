@@ -16,7 +16,7 @@ function formatDate(timestamp) {
     "Thurday",
     "Friday",
     "Saturday",
-    "Sunday"
+    "Sunday",
   ];
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
@@ -97,7 +97,7 @@ function displayWeatherCondition1(response1) {
     .querySelector("#icon-today")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response1.data.wheather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response1.data.weather[0].icon}@2x.png`
     );
 }
 
@@ -127,31 +127,31 @@ function displayForecast(response) {
     .querySelector("#icon-today-plus-one")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.list[8].wheather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response.data.list[8].weather[0].icon}@2x.png`
     );
   document
     .querySelector("#icon-today-plus-two")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.list[16].wheather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response.data.list[16].weather[0].icon}@2x.png`
     );
   document
     .querySelector("#icon-today-plus-three")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.list[24].wheather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response.data.list[24].weather[0].icon}@2x.png`
     );
   document
     .querySelector("#icon-today-plus-four")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.list[32].wheather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response.data.list[32].weather[0].icon}@2x.png`
     );
   document
     .querySelector("#icon-today-plus-five")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.list[39].wheather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response.data.list[39].weather[0].icon}@2x.png`
     );
 }
 
